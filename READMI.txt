@@ -1,0 +1,22 @@
+How to use and test the API
+
+-) Open the terminal
+-) Run the command "pip install -r requirements.txt"
+-) Activate the virtual environment (Windows: "venv\Scripts\activate" | Linux/Mac: "source venv/bin/activate")
+-) Run the command "pytest" to execute the tests
+-) Run the command "python app.py" to start the app
+-) Copy the address where the app is being executed (example: http://127.0.0.1:5000)
+-) Append it to the rest of the API call
+
+Test examples:
+/api/catalogs/1/prizes?filter[id]=LKHCWNFAIM
+/api/catalogs/3/prizes?pagination[per_page]=4
+/api/catalogs/6/prizes?pagination[page]=3
+/api/catalogs/1/prizes?filter[id]=LKHCWNFAIM&pagination[page]=1&pagination[per_page]=8
+/api/catalogs/4/prizes?filter[id]=LKHCWNFAIM
+
+
+Note:
+I have created a dummy database in Excel, making it easy to verify the correct functioning of the application by filtering on the columns.
+The application contains 9 different catalogs, so the accepted values are numbers from 1 to 9. A catalog value other than these generates a handled error case.
+Extra parameters can be inserted within the call, and if these parameters are present, they are validated where necessary (for example, page must be a number greater than or equal to 1).
